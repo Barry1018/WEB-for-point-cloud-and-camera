@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Registration</title>
+</head>
+<body>
+    <!-- Navbar Section -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">CPCWEB</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link active" aria-current="page" href="/camera">Camera</a>
+              <a class="nav-link" href="/model">Model</a>
+              <a class="nav-link" href="/registration">Registration</a>
+              
+            </div>
+          </div>
+        </div>
+    </nav>
+      <!-- Navbar Section -->
+    <h2>Scene preprocessing</h2>
+    <p class="lead">
+    Scene preprocessing : Setting pass-through height and region growing parameters.
+    </p>
+    <form>
+        <fieldset>
+            <legend>Pass-through Height</legend>
+            <label>Height:</label> <input name="passthrough_height">
+            
+        </fieldset>
+        
+        <fieldset style="margin-bottom: 50px;">
+            <legend>Region Growing Parameters</legend>
+            <label>Min Cluster Size:</label> <input name="Min_Cluster_Size">
+            <label>Max Cluster Size:</label> <input name="Max_Cluster_Size">
+            <label style="margin-bottom: 15px;">Min Cluster Size:</label> <input name="Min_Cluster_Size">
+            <br >
+            <label >Num of Neighbors:</label> <input name="Num_of_Neighbors">
+            <label >Smoothness Threshold:</label> <input name="Smoothness_Threshold">
+            <label >Curvature Threshold:</label> <input name="Curvature_Threshold">
+            
+            
+        </fieldset>  
+            <button type="button" class="btn btn-primary" style="margin-bottom: 50px;">Filter and Extract Scene</button>
+    </form>
+    <h2>Method Apply</h2>
+    <table class="table" style="margin-bottom: 50px;">
+        <thead >
+          <tr>
+            <th scope="col" class="col-3">Methods</th>
+            <th scope="col" class="col-3">Method Setting</th>
+            <th scope="col" class="col-3">Note</th>
+
+          </tr>
+        </thead>
+        <tbody >
+          <tr>
+            <th scope="row" >1. Rotation around scene plane.</th>
+            <td class="col-5">
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>How many axis?</option>
+                    <option value="0">None</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </td>
+            <td>
+                <p>After ICP between two planes,you can add more rotated models.</p>
+            </td>
+
+          </tr>
+          <tr>
+            <th scope="row">2. Whole Model/Hull Model for distance grading.</th>
+            <td>                
+                <input class="form-check-input" type="checkbox" value="" id="Whole Model">
+                <label class="form-check-label" for="flexCheckDefault">Whole Model
+                </label>
+                <br>
+                <input class="form-check-input" type="checkbox" value="" id="Hull Model">
+                <label class="form-check-label" for="flexCheckDefault">Hull Model
+                </label>
+
+            </td>
+            <td>
+                <p>Downsample the whole model?</p>
+                <label>Downsample Size:</label> <input name="Downsample_Size">
+            </td>
+          </tr>
+
+          <tr>
+            <th scope="row">3. Vote or not</th>
+          
+          <td>
+            <input class="form-check-input" type="checkbox" value="" id="vote">
+            <label class="form-check-label" for="flexCheckDefault">Yes
+            </label>
+            <br>
+            <input class="form-check-input" type="checkbox" value="" id="dont_vote">
+            <label class="form-check-label" for="flexCheckDefault">No
+            </label>
+          </td>
+          <td>
+            <p>Vote for better solution, you can set the following weights.</p>
+            <br>
+            <label>Distance weight:</label> <input name="Distance_weight">
+            <label style="margin-top: 5px;margin-bottom: 5px;">Nearest point count weight:</label> <input name="Nearest_point_count_weight">
+            <label>PCA similarity weight:</label> <input name="PCA_similarity_weight">
+            
+          </td>
+        </tr>
+        </tbody>
+    </table>
+    <button type="button" class="btn btn-primary" style="margin-bottom: 50px;">Start Registration</button>
+    <br>
+    <h2>
+        Result
+    </h2>
+    <div class="card" style="width: 80rem;">
+        <div style="background-color: aqua; height: 500px; width: 600px;display: inline-block;">
+            Camera Image
+        </div>
+        <div style="background-color: pink; height: 500px; width: 600px; position: relative; left: 600px; top: -500px;">
+            Point cloud
+        </div>
+        
+        <div class="card-body" style="margin-top: -500px;">
+            <button type="button" class="btn btn-danger" >Stop</button>
+            <button type="button" class="btn btn-success" >Restart</button>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+    </div>
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>

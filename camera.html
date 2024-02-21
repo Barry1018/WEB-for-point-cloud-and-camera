@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Camera</title>
+</head>
+<body>
+    <!-- Navbar Section -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">CPCWEB</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link active" aria-current="page" href="/camera">Camera</a>
+              <a class="nav-link" href="/model">Model</a>
+              <a class="nav-link" href="/registration">Registration</a>
+              
+            </div>
+          </div>
+        </div>
+      </nav>
+      <!-- Navbar Section -->
+
+
+    <h1>Camera Setting</h1>
+    <div style="background-color: bisque; margin-top: 70px; width: 700px; height:400px; top:50px; margin-left:100px;position:absolute;">
+      Image Here
+    </div>
+    <div class="text-center" style="background-color: palegreen; width: 300px;margin-top: 70px; height:400px;top:50px; margin-left:700px;position:absolute;">
+        <form action="/check" method="post">
+          
+            <label for="property1"style="margin-top:70px";>Property1</label>
+            <input type="text" name="property1">
+
+            <label for="property2">Property2</label>
+            <input type="text" name="property2">
+
+            <label for="property3" style="margin-bottom: 30px;">Property3</label>
+            <input type="text" name="property3">
+
+            <div align="center"><button type="button" class="btn btn-danger" style="display: block;justify-content: center;">Set World Coordinate</button></div>
+            <br>
+            <div align="center"><button type="button" class="btn btn-primary" style="display: block;justify-content: center;">Take Photo</button></div>
+            <div align="center"><button type="button" class="btn btn-success" style="display: block;justify-content: center;">Save as pcl file</button></div>
+        </form>
+    </div>
+    <div class="text-center" style="background-color: rgb(199, 210, 83);position:absolute; width: 900px;margin-top: 400px; height:200px; margin-left:100px;">
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Status Column</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
